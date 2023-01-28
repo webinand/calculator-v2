@@ -13,57 +13,63 @@ for (item of btn) {
     if (btntext == "÷") {
       btntext = "/";
     }
-    screen.value += btntext;
+    screen.textContent += btntext;
   });
 }
 
 function sin() {
-  screen.value = Math.sin(screen.value);
+  screen.textContent = Math.sin(screen.textContent);
+}
+function per() {
+  screen.textContent = screen.textContent / 100;
 }
 
 function cos() {
-  screen.value = Math.cos(screen.value);
+  screen.textContent = Math.cos(screen.textContent);
 }
 
 function tan() {
-  screen.value = Math.tan(screen.value);
+  screen.textContent = Math.tan(screen.textContent);
 }
 
 function pow() {
-  screen.value = Math.pow(screen.value, 2);
+  screen.textContent = Math.pow(screen.textContent, 2);
 }
 
 function sqrt() {
-  screen.value = Math.sqrt(screen.value, 2);
+  screen.textContent = Math.sqrt(screen.textContent, 2);
 }
 
 function log() {
-  screen.value = Math.log(screen.value);
+  screen.textContent = Math.log(screen.textContent);
 }
 
 function pi() {
-  screen.value = 3.14159265359;
+  screen.textContent = 3.14159265359;
 }
 
 function e() {
-  screen.value = 2.71828182846;
+  screen.textContent = 2.71828182846;
 }
 
 function fact() {
   var i, num, f;
   f = 1;
-  num = screen.value;
+  num = screen.textContent;
   for (i = 1; i <= num; i++) {
     f = f * i;
   }
 
   i = i - 1;
 
-  screen.value = f;
+  screen.textContent = f;
 }
 
 function backspc() {
-  screen.value = screen.value.substr(0, screen.value.length - 1);
+  screen.textContent = screen.textContent.substr(
+    0,
+    screen.textContent.length - 1
+  );
 }
 window.speechR;
 
@@ -92,7 +98,8 @@ microphone.onclick = function () {
     for (property in operations) {
       input = input.replace(property, operations[property]);
     }
-    document.getElementById("screen").innerText = input;
+    // console.log(input);
+    document.getElementById("screen").textContent = input;
     setTimeout(function () {
       evaluate(input);
     }, 2000);
@@ -102,10 +109,10 @@ microphone.onclick = function () {
 function evaluate(input) {
   try {
     var result = eval(input);
-    document.getElementById("screen").innerText = result;
+    document.getElementById("screen").textContent = result;
   } catch (e) {
     console.log(e);
-    document.getElementById("screen").innerText = "";
+    document.getElementById("screen").textContent = "";
   }
 }
 

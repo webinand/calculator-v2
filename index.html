@@ -14,7 +14,7 @@
   <body>
     <div class="container">
       <div class="display">
-        <input id="screen" type="text" placeholder="emerald" />
+        <div id="screen" type="text" placeholder="emerald"></div>
       </div>
       <div id="output-microphone">
         <span id="microphone"> </span>
@@ -31,8 +31,8 @@
           <button onclick="fact()">x!</button>
           <button class="btn">(</button>
           <button class="btn">)</button>
-          <button class="btn">%</button>
-          <button id="ac" onclick="screen.value=''">AC</button>
+          <button class="btn" onclick="per()">%</button>
+          <button id="ac" onclick="screen.textContent=''">AC</button>
         </div>
 
         <div class="row">
@@ -72,7 +72,12 @@
           </button>
           <button class="btn">0</button>
           <button class="btn">.</button>
-          <button id="eval" onclick="screen.value=eval(screen.value)">=</button>
+          <button
+            id="eval"
+            onclick="screen.textContent=eval(screen.textContent)"
+          >
+            =
+          </button>
           <button class="btn">+</button>
         </div>
       </div>
